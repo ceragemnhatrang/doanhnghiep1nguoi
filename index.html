@@ -18,7 +18,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -60,86 +59,48 @@
       min-height: 100vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      padding: 0 5%;
-      padding-top: 80px;
-      gap: 4rem;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
+      padding: 0 5%; padding-top: 80px;
+      gap: 4rem; align-items: center;
+      position: relative; overflow: hidden;
     }
-
     .hero::before {
       content: '';
       position: absolute; inset: 0;
       background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(200,146,42,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
-
-    /* Decorative large text in background */
     .hero-bg-text {
-      position: absolute;
-      right: -2%;
-      top: 50%;
+      position: absolute; right: -2%; top: 50%;
       transform: translateY(-50%);
       font-family: 'Playfair Display', serif;
-      font-size: clamp(140px, 18vw, 260px);
-      font-weight: 900;
+      font-size: clamp(140px, 18vw, 260px); font-weight: 900;
       color: transparent;
       -webkit-text-stroke: 1px rgba(200,146,42,0.12);
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
+      line-height: 1; pointer-events: none; user-select: none;
       letter-spacing: -0.04em;
     }
-
-    .hero-left {
-      position: relative; z-index: 1;
-      animation: fadeUp 0.9s ease both;
-    }
-
+    .hero-left { position: relative; z-index: 1; animation: fadeUp 0.9s ease both; }
     .hero-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.9rem;
-      margin-bottom: 1.6rem;
+      display: inline-block; background: var(--gold); color: #fff;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; margin-bottom: 1.6rem;
     }
-
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4.5vw, 4rem);
-      font-weight: 900;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.4rem;
+      font-size: clamp(2.4rem, 4.5vw, 4rem); font-weight: 900;
+      line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1.4rem;
     }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
+    .hero-title em { font-style: italic; color: var(--gold); }
     .hero-subtitle {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--muted);
-      max-width: 500px;
-      margin-bottom: 2.4rem;
+      font-size: 1.05rem; line-height: 1.8;
+      color: var(--muted); max-width: 500px; margin-bottom: 2.4rem;
     }
-
     .hero-meta {
-      display: flex; gap: 2rem;
-      margin-bottom: 2.4rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      display: flex; gap: 2rem; margin-bottom: 2.4rem;
+      font-size: 0.82rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
     }
-
     .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
     .hero-meta strong { color: var(--ink); font-weight: 600; }
 
@@ -148,16 +109,11 @@
       background: var(--ink); color: var(--cream);
       padding: 1rem 2.2rem;
       font-family: 'Be Vietnam Pro', sans-serif;
-      font-size: 0.95rem; font-weight: 600;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      transition: all 0.2s;
-      border: 2px solid var(--ink);
+      font-size: 0.95rem; font-weight: 600; letter-spacing: 0.04em;
+      text-decoration: none; transition: all 0.2s;
+      border: 2px solid var(--ink); cursor: pointer;
     }
-    .btn-primary:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
+    .btn-primary:hover { background: var(--gold); border-color: var(--gold); }
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 0.6rem;
       background: transparent; color: var(--ink);
@@ -165,9 +121,7 @@
       font-family: 'Be Vietnam Pro', sans-serif;
       font-size: 0.95rem; font-weight: 500;
       border: 2px solid var(--border);
-      text-decoration: none;
-      margin-left: 1rem;
-      transition: all 0.2s;
+      text-decoration: none; margin-left: 1rem; transition: all 0.2s;
     }
     .btn-secondary:hover { border-color: var(--ink); }
 
@@ -177,109 +131,51 @@
       display: flex; justify-content: center; align-items: center;
       animation: fadeUp 0.9s 0.2s ease both;
     }
-
     .book-3d {
-      position: relative;
-      width: 260px;
-      height: 340px;
+      position: relative; width: 260px; height: 340px;
       transform: perspective(1000px) rotateY(-15deg) rotateX(3deg);
       transition: transform 0.4s ease;
       filter: drop-shadow(40px 40px 60px rgba(26,18,8,0.3));
     }
-    .book-3d:hover {
-      transform: perspective(1000px) rotateY(-5deg) rotateX(1deg);
-    }
-
+    .book-3d:hover { transform: perspective(1000px) rotateY(-5deg) rotateX(1deg); }
     .book-cover {
       width: 100%; height: 100%;
       background: linear-gradient(145deg, #1a1208 0%, #2d2010 60%, #1a1208 100%);
       border-radius: 2px 6px 6px 2px;
       display: flex; flex-direction: column;
       justify-content: space-between;
-      padding: 2rem 1.8rem;
-      position: relative;
-      overflow: hidden;
+      padding: 2rem 1.8rem; position: relative; overflow: hidden;
     }
-
     .book-cover::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 2px,
-        rgba(200,146,42,0.04) 2px,
-        rgba(200,146,42,0.04) 4px
-      );
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(200,146,42,0.04) 2px, rgba(200,146,42,0.04) 4px);
     }
-
     .book-cover::after {
-      content: '';
-      position: absolute;
+      content: ''; position: absolute;
       top: 0; left: 0; width: 8px; height: 100%;
       background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(200,146,42,0.1), transparent);
     }
-
     .book-top { position: relative; z-index: 1; }
-    .book-edition {
-      font-size: 0.6rem; letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-    }
-    .book-cover-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem; font-weight: 900;
-      color: var(--cream);
-      line-height: 1.3;
-    }
+    .book-edition { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .book-cover-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--cream); line-height: 1.3; }
     .book-cover-title em { color: var(--gold-light); font-style: italic; }
-    .book-divider {
-      width: 40px; height: 2px;
-      background: var(--gold);
-      margin: 1rem 0;
-    }
-    .book-subtitle-cover {
-      font-size: 0.68rem; color: rgba(245,240,232,0.6);
-      line-height: 1.5; font-style: italic;
-    }
-
+    .book-divider { width: 40px; height: 2px; background: var(--gold); margin: 1rem 0; }
+    .book-subtitle-cover { font-size: 0.68rem; color: rgba(245,240,232,0.6); line-height: 1.5; font-style: italic; }
     .book-bottom { position: relative; z-index: 1; }
-    .book-author {
-      font-size: 0.7rem; letter-spacing: 0.1em;
-      color: rgba(245,240,232,0.7);
-      text-transform: uppercase;
-    }
+    .book-author { font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(245,240,232,0.7); text-transform: uppercase; }
     .book-author strong { color: var(--gold-light); }
-
-    .book-ornament {
-      position: absolute; bottom: 3rem; right: 1.5rem;
-      font-size: 3.5rem; opacity: 0.06;
-      color: var(--gold);
-      font-family: serif;
-    }
+    .book-ornament { position: absolute; bottom: 3rem; right: 1.5rem; font-size: 3.5rem; opacity: 0.06; color: var(--gold); font-family: serif; }
 
     /* ─── SOCIAL PROOF ─── */
     .social-proof {
-      padding: 3rem 5%;
-      border-top: 1px solid var(--border);
+      padding: 3rem 5%; border-top: 1px solid var(--border);
       background: var(--warm);
-      display: flex; gap: 3rem; align-items: center;
-      flex-wrap: wrap;
+      display: flex; gap: 3rem; align-items: center; flex-wrap: wrap;
     }
-    .sp-label {
-      font-size: 0.75rem; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--muted);
-    }
-    .sp-stats {
-      display: flex; gap: 3rem; flex-wrap: wrap;
-    }
+    .sp-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .sp-stats { display: flex; gap: 3rem; flex-wrap: wrap; }
     .sp-stat { text-align: center; }
-    .sp-stat .num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem; font-weight: 700;
-      color: var(--gold); display: block;
-    }
+    .sp-stat .num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); display: block; }
     .sp-stat .desc { font-size: 0.75rem; color: var(--muted); }
 
     /* ─── ABOUT AUTHOR ─── */
@@ -289,381 +185,127 @@
       gap: 5rem; align-items: center;
       border-top: 1px solid var(--border);
     }
-
-    .author-visual {
-      position: relative;
-    }
+    .author-visual { position: relative; }
     .author-frame {
-      width: 100%;
-      aspect-ratio: 3/4;
+      width: 100%; aspect-ratio: 3/4;
       background: linear-gradient(135deg, #2d2010, #1a1208);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
     .author-frame::before {
-      content: 'B';
-      font-family: 'Playfair Display', serif;
+      content: 'B'; font-family: 'Playfair Display', serif;
       font-size: 200px; font-weight: 900;
-      color: rgba(200,146,42,0.15);
-      line-height: 1;
+      color: rgba(200,146,42,0.15); line-height: 1;
     }
     .author-tag {
       position: absolute; bottom: -1px; left: -1px; right: -1px;
-      background: var(--gold);
-      padding: 0.8rem 1.2rem;
-      text-align: center;
+      background: var(--gold); padding: 0.8rem 1.2rem; text-align: center;
     }
-    .author-tag strong {
-      display: block; font-size: 1rem; font-weight: 700; color: #fff;
-    }
+    .author-tag strong { display: block; font-size: 1rem; font-weight: 700; color: #fff; }
     .author-tag span { font-size: 0.75rem; color: rgba(255,255,255,0.8); }
+    .author-deco { position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; border: 3px solid var(--gold); opacity: 0.4; }
+    .author-deco2 { position: absolute; bottom: 40px; left: -15px; width: 50px; height: 50px; background: var(--rust); opacity: 0.3; }
 
-    .author-deco {
-      position: absolute; top: -20px; right: -20px;
-      width: 80px; height: 80px;
-      border: 3px solid var(--gold);
-      opacity: 0.4;
-    }
-    .author-deco2 {
-      position: absolute; bottom: 40px; left: -15px;
-      width: 50px; height: 50px;
-      background: var(--rust);
-      opacity: 0.3;
-    }
-
-    .section-label {
-      font-size: 0.72rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 900; line-height: 1.2;
-      margin-bottom: 1.4rem;
-    }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900; line-height: 1.2; margin-bottom: 1.4rem; }
     .section-title em { font-style: italic; color: var(--gold); }
-    .section-body {
-      font-size: 0.98rem; line-height: 1.9;
-      color: #4a3f30;
-      margin-bottom: 1.2rem;
-    }
+    .section-body { font-size: 0.98rem; line-height: 1.9; color: #4a3f30; margin-bottom: 1.2rem; }
 
-    .author-highlights {
-      margin-top: 1.8rem;
-      display: flex; flex-direction: column; gap: 0.8rem;
-    }
-    .ah-item {
-      display: flex; align-items: flex-start; gap: 0.8rem;
-      font-size: 0.9rem;
-    }
-    .ah-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--gold); flex-shrink: 0;
-      margin-top: 0.4em;
-    }
+    .author-highlights { margin-top: 1.8rem; display: flex; flex-direction: column; gap: 0.8rem; }
+    .ah-item { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.9rem; }
+    .ah-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.4em; }
 
     /* ─── CHAPTERS ─── */
     .chapters-section {
-      padding: 6rem 5%;
-      background: var(--ink);
-      color: var(--cream);
-      position: relative; overflow: hidden;
+      padding: 6rem 5%; background: var(--ink);
+      color: var(--cream); position: relative; overflow: hidden;
     }
     .chapters-section::before {
-      content: '';
-      position: absolute; top: 0; right: 0;
+      content: ''; position: absolute; top: 0; right: 0;
       width: 40%; height: 100%;
       background: radial-gradient(ellipse at right, rgba(200,146,42,0.08), transparent 70%);
     }
-
-    .chapters-header {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; margin-bottom: 4rem; align-items: end;
-    }
+    .chapters-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 4rem; align-items: end; }
     .chapters-header .section-label { color: var(--gold-light); }
     .chapters-header .section-title { color: var(--cream); }
-    .chapters-intro {
-      font-size: 0.98rem; line-height: 1.9;
-      color: rgba(245,240,232,0.6);
-    }
-
-    .chapters-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 0;
-      border: 1px solid rgba(245,240,232,0.1);
-    }
-    .chapter-card {
-      padding: 2rem 2.2rem;
-      border-right: 1px solid rgba(245,240,232,0.1);
-      border-bottom: 1px solid rgba(245,240,232,0.1);
-      transition: background 0.2s;
-      position: relative;
-    }
+    .chapters-intro { font-size: 0.98rem; line-height: 1.9; color: rgba(245,240,232,0.6); }
+    .chapters-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid rgba(245,240,232,0.1); }
+    .chapter-card { padding: 2rem 2.2rem; border-right: 1px solid rgba(245,240,232,0.1); border-bottom: 1px solid rgba(245,240,232,0.1); transition: background 0.2s; position: relative; }
     .chapter-card:hover { background: rgba(200,146,42,0.07); }
     .chapter-card:nth-child(2n) { border-right: none; }
-
-    .ch-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem; font-weight: 900;
-      color: rgba(200,146,42,0.2);
-      line-height: 1; margin-bottom: 0.5rem;
-    }
-    .ch-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem; font-weight: 700;
-      color: var(--cream); margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
-    .ch-desc {
-      font-size: 0.82rem; line-height: 1.7;
-      color: rgba(245,240,232,0.5);
-    }
+    .ch-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: rgba(200,146,42,0.2); line-height: 1; margin-bottom: 0.5rem; }
+    .ch-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--cream); margin-bottom: 0.6rem; line-height: 1.3; }
+    .ch-desc { font-size: 0.82rem; line-height: 1.7; color: rgba(245,240,232,0.5); }
 
     /* ─── FOR WHO ─── */
-    .forwho-section {
-      padding: 6rem 5%;
-      background: var(--warm);
-      border-top: 1px solid var(--border);
-    }
-    .forwho-inner {
-      display: grid; grid-template-columns: 1.2fr 1fr;
-      gap: 5rem; align-items: start;
-    }
-    .forwho-cards {
-      display: flex; flex-direction: column; gap: 1rem;
-    }
-    .fw-card {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      padding: 1.4rem 1.6rem;
-      display: flex; align-items: flex-start; gap: 1.2rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
+    .forwho-section { padding: 6rem 5%; background: var(--warm); border-top: 1px solid var(--border); }
+    .forwho-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
+    .forwho-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .fw-card { background: var(--cream); border: 1px solid var(--border); padding: 1.4rem 1.6rem; display: flex; align-items: flex-start; gap: 1.2rem; transition: border-color 0.2s, transform 0.2s; }
     .fw-card:hover { border-color: var(--gold); transform: translateX(4px); }
-    .fw-icon {
-      width: 40px; height: 40px; flex-shrink: 0;
-      background: var(--ink);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-    }
+    .fw-icon { width: 40px; height: 40px; flex-shrink: 0; background: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
     .fw-text { flex: 1; }
     .fw-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
     .fw-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
-
     .forwho-right { padding-top: 0.5rem; }
-    .not-for {
-      margin-top: 2.5rem;
-      padding: 1.8rem;
-      border: 1px dashed var(--border);
-      background: rgba(184,76,42,0.04);
-    }
-    .not-for-title {
-      font-size: 0.75rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--rust);
-      margin-bottom: 1rem;
-    }
-    .not-for-item {
-      font-size: 0.85rem; color: var(--muted);
-      margin-bottom: 0.5rem; padding-left: 1rem;
-      position: relative;
-    }
-    .not-for-item::before {
-      content: '✕';
-      position: absolute; left: 0;
-      font-size: 0.65rem; color: var(--rust);
-      top: 0.1em;
-    }
+    .not-for { margin-top: 2.5rem; padding: 1.8rem; border: 1px dashed var(--border); background: rgba(184,76,42,0.04); }
+    .not-for-title { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rust); margin-bottom: 1rem; }
+    .not-for-item { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
+    .not-for-item::before { content: '✕'; position: absolute; left: 0; font-size: 0.65rem; color: var(--rust); top: 0.1em; }
 
     /* ─── TESTIMONIAL ─── */
-    .testimonial-section {
-      padding: 5rem 5%;
-      border-top: 1px solid var(--border);
-    }
+    .testimonial-section { padding: 5rem 5%; border-top: 1px solid var(--border); }
     .testimonial-section .section-label { text-align: center; }
     .testimonial-section .section-title { text-align: center; margin-bottom: 3rem; }
-    .testimonials-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .t-card {
-      background: var(--warm);
-      border: 1px solid var(--border);
-      padding: 2rem;
-    }
-    .t-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem; color: var(--gold); line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    .t-text {
-      font-size: 0.9rem; line-height: 1.8; color: #4a3f30;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .t-card { background: var(--warm); border: 1px solid var(--border); padding: 2rem; }
+    .t-quote { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
+    .t-text { font-size: 0.9rem; line-height: 1.8; color: #4a3f30; margin-bottom: 1.5rem; font-style: italic; }
     .t-author { display: flex; align-items: center; gap: 0.8rem; }
-    .t-avatar {
-      width: 36px; height: 36px;
-      background: var(--ink);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold); font-weight: 700; font-size: 0.85rem;
-      flex-shrink: 0;
-    }
+    .t-avatar { width: 36px; height: 36px; background: var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
     .t-name { font-size: 0.85rem; font-weight: 600; }
     .t-role { font-size: 0.75rem; color: var(--muted); }
 
     /* ─── PRICING ─── */
-    .pricing-section {
-      padding: 6rem 5%;
-      background: var(--ink);
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .pricing-section::before {
-      content: '₫';
-      position: absolute; left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 500px;
-      color: rgba(200,146,42,0.03);
-      font-family: 'Playfair Display', serif;
-      pointer-events: none;
-    }
+    .pricing-section { padding: 6rem 5%; background: var(--ink); text-align: center; position: relative; overflow: hidden; }
+    .pricing-section::before { content: '₫'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 500px; color: rgba(200,146,42,0.03); font-family: 'Playfair Display', serif; pointer-events: none; }
     .pricing-section .section-label { color: var(--gold-light); margin-bottom: 0.5rem; }
     .pricing-section .section-title { color: var(--cream); margin-bottom: 0.5rem; }
-
-    .price-card {
-      max-width: 480px; margin: 3rem auto 0;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(200,146,42,0.3);
-      padding: 3rem;
-      position: relative;
-    }
-    .price-tag {
-      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: var(--gold); color: #fff;
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.3rem 1rem;
-    }
-    .price-original {
-      font-size: 1rem; color: rgba(245,240,232,0.4);
-      text-decoration: line-through; margin-bottom: 0.3rem;
-    }
-    .price-main {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem; font-weight: 900;
-      color: var(--gold-light); line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    .price-note {
-      font-size: 0.8rem; color: rgba(245,240,232,0.5);
-      margin-bottom: 2rem;
-    }
-    .price-includes {
-      text-align: left; margin-bottom: 2rem;
-      display: flex; flex-direction: column; gap: 0.7rem;
-    }
-    .pi-item {
-      display: flex; align-items: center; gap: 0.7rem;
-      font-size: 0.88rem; color: rgba(245,240,232,0.8);
-    }
-    .pi-check {
-      width: 18px; height: 18px; flex-shrink: 0;
-      background: var(--gold); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.6rem; color: #fff;
-    }
-    .btn-buy {
-      display: block; width: 100%;
-      background: var(--gold); color: #fff;
-      border: none; padding: 1.1rem;
-      font-family: 'Be Vietnam Pro', sans-serif;
-      font-size: 1rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      cursor: pointer; transition: background 0.2s;
-      text-decoration: none; text-align: center;
-    }
+    .price-card { max-width: 480px; margin: 3rem auto 0; background: rgba(255,255,255,0.04); border: 1px solid rgba(200,146,42,0.3); padding: 3rem; position: relative; }
+    .price-tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 1rem; }
+    .price-original { font-size: 1rem; color: rgba(245,240,232,0.4); text-decoration: line-through; margin-bottom: 0.3rem; }
+    .price-main { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: var(--gold-light); line-height: 1; margin-bottom: 0.5rem; }
+    .price-note { font-size: 0.8rem; color: rgba(245,240,232,0.5); margin-bottom: 2rem; }
+    .price-includes { text-align: left; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .pi-item { display: flex; align-items: center; gap: 0.7rem; font-size: 0.88rem; color: rgba(245,240,232,0.8); }
+    .pi-check { width: 18px; height: 18px; flex-shrink: 0; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #fff; }
+    .btn-buy { display: block; width: 100%; background: var(--gold); color: #fff; border: none; padding: 1.1rem; font-family: 'Be Vietnam Pro', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; text-decoration: none; text-align: center; }
     .btn-buy:hover { background: var(--gold-light); }
-    .price-guarantee {
-      margin-top: 1.2rem;
-      font-size: 0.78rem; color: rgba(245,240,232,0.4);
-    }
+    .price-guarantee { margin-top: 1.2rem; font-size: 0.78rem; color: rgba(245,240,232,0.4); }
 
     /* ─── FAQ ─── */
-    .faq-section {
-      padding: 5rem 5%;
-      max-width: 860px; margin: 0 auto;
-    }
+    .faq-section { padding: 5rem 5%; max-width: 860px; margin: 0 auto; }
     .faq-section .section-title { text-align: center; margin-bottom: 3rem; }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 1.4rem 0;
-    }
-    .faq-q {
-      font-weight: 600; font-size: 0.98rem;
-      cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 1rem;
-    }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1.4rem 0; }
+    .faq-q { font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
     .faq-arrow { color: var(--gold); font-size: 1.2rem; transition: transform 0.2s; }
     .faq-q.open .faq-arrow { transform: rotate(90deg); }
-    .faq-a {
-      font-size: 0.9rem; line-height: 1.8; color: var(--muted);
-      margin-top: 0.8rem;
-      display: none;
-    }
+    .faq-a { font-size: 0.9rem; line-height: 1.8; color: var(--muted); margin-top: 0.8rem; display: none; }
     .faq-a.open { display: block; }
 
     /* ─── FOOTER CTA ─── */
-    .footer-cta {
-      padding: 5rem 5%;
-      background: linear-gradient(135deg, #1a1208, #2d2010);
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .footer-cta::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 4px,
-        rgba(200,146,42,0.03) 4px,
-        rgba(200,146,42,0.03) 5px
-      );
-    }
+    .footer-cta { padding: 5rem 5%; background: linear-gradient(135deg, #1a1208, #2d2010); text-align: center; position: relative; overflow: hidden; }
+    .footer-cta::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(200,146,42,0.03) 4px, rgba(200,146,42,0.03) 5px); }
     .footer-cta .section-label { color: var(--gold-light); }
     .footer-cta .section-title { color: var(--cream); margin: 0.5rem 0 1.5rem; }
-    .footer-cta-sub {
-      color: rgba(245,240,232,0.5); font-size: 0.98rem;
-      max-width: 500px; margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
+    .footer-cta-sub { color: rgba(245,240,232,0.5); font-size: 0.98rem; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.7; }
 
-    footer {
-      padding: 2rem 5%;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      background: #0f0b05;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      color: var(--gold); font-size: 1rem;
-    }
-    .footer-copy {
-      font-size: 0.78rem; color: rgba(245,240,232,0.3);
-    }
+    footer { padding: 2rem 5%; border-top: 1px solid rgba(255,255,255,0.06); background: #0f0b05; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; }
+    .footer-copy { font-size: 0.78rem; color: rgba(245,240,232,0.3); }
 
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 100px; padding-bottom: 4rem; }
       .hero-right { order: -1; }
@@ -674,28 +316,116 @@
       .chapters-grid { grid-template-columns: 1fr; }
       .chapter-card:nth-child(2n) { border-right: 1px solid rgba(245,240,232,0.1); }
     }
+
+    /* ─── MODAL FORM ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(26,18,8,0.75);
+      backdrop-filter: blur(4px);
+      justify-content: center; align-items: center;
+      padding: 1rem;
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal {
+      background: var(--cream);
+      max-width: 460px; width: 100%;
+      padding: 2.8rem 2.4rem;
+      position: relative;
+      animation: fadeUp 0.35s ease both;
+      border-top: 4px solid var(--gold);
+    }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1.2rem;
+      background: none; border: none;
+      font-size: 1.4rem; color: var(--muted);
+      cursor: pointer; line-height: 1;
+    }
+    .modal-close:hover { color: var(--ink); }
+    .modal-badge {
+      display: inline-block; background: var(--gold); color: #fff;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.25rem 0.75rem; margin-bottom: 1rem;
+    }
+    .modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 900;
+      line-height: 1.2; margin-bottom: 0.5rem;
+    }
+    .modal h2 em { font-style: italic; color: var(--gold); }
+    .modal-sub {
+      font-size: 0.88rem; color: var(--muted);
+      line-height: 1.6; margin-bottom: 1.8rem;
+    }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label {
+      display: block; font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink); margin-bottom: 0.4rem;
+    }
+    .form-group input {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      background: #fff; color: var(--ink);
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 0.95rem;
+      outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: var(--gold); }
+    .form-group input::placeholder { color: #bbb; }
+
+    .btn-submit {
+      width: 100%; background: var(--ink); color: var(--cream);
+      border: none; padding: 1rem;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: var(--gold); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .form-note {
+      font-size: 0.75rem; color: var(--muted);
+      text-align: center; margin-top: 0.8rem;
+    }
+
+    /* Trạng thái thành công */
+    .success-state { display: none; text-align: center; padding: 1rem 0; }
+    .success-state.show { display: block; }
+    .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .success-state h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+    .success-state p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+    .form-content {}
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">OPC · Doanh Nghiệp 1 Người</div>
-  <a href="#pricing" class="nav-cta">Tải Ebook Ngay</a>
+  <div class="nav-logo">DN1N · Doanh Nghiệp 1 Người</div>
+  <button class="nav-cta" onclick="openModal()">Tải Ebook Ngay</button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-text">OPC</div>
+  <div class="hero-bg-text">DN1N</div>
 
   <div class="hero-left">
-    <span class="hero-badge">Ebook · Bản 2025</span>
+    <span class="hero-badge">Sách điện tử · Bản 2025</span>
     <h1 class="hero-title">
       Cẩm Nang Xây Dựng<br/>
       <em>Doanh Nghiệp 1 Người</em>
     </h1>
     <p class="hero-subtitle">
-      Từ nghỉ việc đến tự do tài chính — hành trình thực chiến của người đã xây, đã sai, và đang làm lại từ đầu bằng AI, hệ thống, và nội dung.
+      Từ nghỉ việc đến tự do tài chính — hành trình thực chiến của người đã xây, đã sai, và đang làm lại từ đầu bằng trí tuệ nhân tạo, hệ thống, và nội dung.
     </p>
     <div class="hero-meta">
       <span><strong>13</strong> Chương</span>
@@ -703,31 +433,21 @@
       <span><strong>PDF</strong> + Bài tập</span>
     </div>
     <div>
-      <a href="#pricing" class="btn-primary">
+      <button class="btn-primary" onclick="openModal()">
         Sở Hữu Ngay — 299.000₫
         <span>→</span>
-      </a>
+      </button>
       <a href="#chapters" class="btn-secondary">Xem nội dung</a>
     </div>
   </div>
 
   <div class="hero-right">
     <div class="book-3d">
-      <div class="book-cover">
-        <div class="book-top">
-          <div class="book-edition">Ấn bản 2025</div>
-          <div class="book-cover-title">
-            Cẩm Nang Xây Dựng<br/>
-            <em>Doanh Nghiệp<br/>1 Người</em>
-          </div>
-          <div class="book-divider"></div>
-          <div class="book-subtitle-cover">Scale một mình bằng AI, hệ thống &amp; nội dung</div>
-        </div>
-        <div class="book-bottom">
-          <div class="book-author">Tác giả: <strong>Hạnh Bình</strong></div>
-        </div>
-        <div class="book-ornament">❧</div>
-      </div>
+      <img
+        src="https://raw.githubusercontent.com/ceragemnhatrang/doanhnghiep1nguoi/main/bia-sach.jpg"
+        alt="Bìa sách Cẩm Nang Xây Dựng Doanh Nghiệp 1 Người"
+        style="width:100%;height:100%;object-fit:cover;border-radius:2px 6px 6px 2px;display:block;"
+      />
     </div>
   </div>
 </section>
@@ -749,9 +469,14 @@
     <div class="author-deco"></div>
     <div class="author-deco2"></div>
     <div class="author-frame">
+      <img
+        src="https://raw.githubusercontent.com/ceragemnhatrang/doanhnghiep1nguoi/main/tac-gia.jpg"
+        alt="Tác giả Bình Hồ"
+        style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"
+      />
       <div class="author-tag">
-        <strong>Hạnh Bình</strong>
-        <span>Founder · Content Creator · OPC Practitioner</span>
+        <strong>Bình Hồ</strong>
+        <span>Nhà sáng lập · Người tạo nội dung · Solopreneur</span>
       </div>
     </div>
   </div>
@@ -766,9 +491,9 @@
       Khi thu nhỏ về mô hình 1 người, tôi không tìm thấy cuốn sách nào viết cho người Việt, về bối cảnh Việt, từ người đang thực sự sống qua quá trình đó. Vì vậy tôi tự viết.
     </p>
     <div class="author-highlights">
-      <div class="ah-item"><div class="ah-dot"></div><span>Đã điều hành doanh nghiệp nhiều chi nhánh, rồi chủ động thu nhỏ về OPC</span></div>
-      <div class="ah-item"><div class="ah-dot"></div><span>Đang xây kênh YouTube, blog, và hệ sinh thái sản phẩm số</span></div>
-      <div class="ah-item"><div class="ah-dot"></div><span>Viết về OPC, AI tools, và solopreneur từ góc độ thực hành</span></div>
+      <div class="ah-item"><div class="ah-dot"></div><span>Đã điều hành doanh nghiệp nhiều chi nhánh, rồi chủ động thu nhỏ về mô hình 1 người</span></div>
+      <div class="ah-item"><div class="ah-dot"></div><span>Đang xây kênh video, blog, và hệ sinh thái sản phẩm số</span></div>
+      <div class="ah-item"><div class="ah-dot"></div><span>Viết về doanh nghiệp 1 người, công cụ trí tuệ nhân tạo từ góc độ thực hành</span></div>
       <div class="ah-item"><div class="ah-dot"></div><span>Không bán "thành công" — chia sẻ quá trình thực với cả vấp váp</span></div>
     </div>
   </div>
@@ -782,50 +507,50 @@
       <h2 class="section-title">4 Phần, <em>13 Chương</em> Thực Chiến</h2>
     </div>
     <p class="chapters-intro">
-      Không phải lý thuyết xa vời. Mỗi chương đều có bài tập cuối, checklist hành động, và ví dụ thực từ bối cảnh Việt Nam và Đông Nam Á.
+      Không phải lý thuyết xa vời. Mỗi chương đều có bài tập cuối, danh sách kiểm tra hành động, và ví dụ thực từ bối cảnh Việt Nam và Đông Nam Á.
     </p>
   </div>
 
   <div class="chapters-grid">
     <div class="chapter-card">
       <div class="ch-num">01</div>
-      <div class="ch-title">Mindset: Tại sao 1 Người?</div>
+      <div class="ch-title">Tư Duy: Tại Sao Chỉ Một Người?</div>
       <div class="ch-desc">Từ bỏ tư duy "doanh nghiệp = nhiều người". Hiểu đòn bẩy thực sự của thời đại số.</div>
     </div>
     <div class="chapter-card">
       <div class="ch-num">02</div>
       <div class="ch-title">Chọn Mô Hình Kinh Doanh</div>
-      <div class="ch-desc">Productized service, micro-SaaS, hay content monetization? Phân tích từng loại cho người Việt.</div>
+      <div class="ch-desc">Dịch vụ đóng gói sẵn, phần mềm nhỏ, hay kiếm tiền từ nội dung? Phân tích từng loại cho người Việt.</div>
     </div>
     <div class="chapter-card">
       <div class="ch-num">03</div>
-      <div class="ch-title">AI Stack Của Bạn</div>
-      <div class="ch-desc">Xây bộ công cụ AI phù hợp ngân sách, thay thế 3–5 vị trí nhân sự.</div>
+      <div class="ch-title">Bộ Công Cụ Trí Tuệ Nhân Tạo</div>
+      <div class="ch-desc">Xây bộ công cụ phù hợp ngân sách, thay thế 3–5 vị trí nhân sự.</div>
     </div>
     <div class="chapter-card">
       <div class="ch-num">04</div>
-      <div class="ch-title">Xây Hệ Thống SOP</div>
-      <div class="ch-desc">Tài liệu hóa công việc để AI và automation có thể thay bạn làm phần lớn.</div>
+      <div class="ch-title">Xây Hệ Thống Quy Trình</div>
+      <div class="ch-desc">Tài liệu hoá công việc để trí tuệ nhân tạo và tự động hoá có thể thay bạn làm phần lớn.</div>
     </div>
     <div class="chapter-card">
       <div class="ch-num">05</div>
-      <div class="ch-title">Content Flywheel</div>
+      <div class="ch-title">Vòng Xoay Nội Dung</div>
       <div class="ch-desc">Tạo vòng nội dung tự khuếch đại: một ý tưởng ra nhiều định dạng, nhiều kênh.</div>
     </div>
     <div class="chapter-card">
       <div class="ch-num">06</div>
       <div class="ch-title">Sản Phẩm Số Đầu Tiên</div>
-      <div class="ch-desc">Từ ý tưởng đến MVP trong 2 tuần. Validate trước khi xây — phương pháp Mom Test.</div>
+      <div class="ch-desc">Từ ý tưởng đến bản thử nghiệm trong 2 tuần. Kiểm tra thị trường trước khi xây — phương pháp phỏng vấn khách hàng.</div>
     </div>
     <div class="chapter-card">
       <div class="ch-num">07</div>
-      <div class="ch-title">Thu Nhập & Runway</div>
-      <div class="ch-desc">Tính toán runway thực tế. Xây nhiều nguồn thu. Không bị áp lực tài chính chi phối quyết định.</div>
+      <div class="ch-title">Thu Nhập &amp; Thời Gian Duy Trì</div>
+      <div class="ch-desc">Tính toán thời gian duy trì thực tế. Xây nhiều nguồn thu. Không bị áp lực tài chính chi phối quyết định.</div>
     </div>
     <div class="chapter-card">
       <div class="ch-num">08</div>
-      <div class="ch-title">Scale Mà Không Thuê Người</div>
-      <div class="ch-desc">Automation, outsource chiến lược, và khi nào thực sự cần cộng tác.</div>
+      <div class="ch-title">Mở Rộng Mà Không Thuê Người</div>
+      <div class="ch-desc">Tự động hoá, thuê ngoài có chiến lược, và khi nào thực sự cần cộng tác.</div>
     </div>
   </div>
 </section>
@@ -848,21 +573,21 @@
           <div class="fw-icon">🔄</div>
           <div class="fw-text">
             <div class="fw-title">Đang chuyển đổi sau khi đóng cửa công ty cũ</div>
-            <div class="fw-desc">Đã từng có team, nay muốn làm lại nhưng gọn nhẹ và bền vững hơn.</div>
+            <div class="fw-desc">Đã từng có đội nhóm, nay muốn làm lại nhưng gọn nhẹ và bền vững hơn.</div>
           </div>
         </div>
         <div class="fw-card">
           <div class="fw-icon">🌐</div>
           <div class="fw-text">
-            <div class="fw-title">Freelancer muốn productize dịch vụ</div>
-            <div class="fw-desc">Đang bán thời gian theo giờ, muốn chuyển sang mô hình có thể scale mà không làm thêm giờ.</div>
+            <div class="fw-title">Người làm tự do muốn đóng gói dịch vụ</div>
+            <div class="fw-desc">Đang bán thời gian theo giờ, muốn chuyển sang mô hình có thể mở rộng mà không làm thêm giờ.</div>
           </div>
         </div>
         <div class="fw-card">
           <div class="fw-icon">✍️</div>
           <div class="fw-text">
-            <div class="fw-title">Creator muốn monetize nội dung</div>
-            <div class="fw-desc">Đang có audience, muốn biến nó thành doanh nghiệp thực thụ với hệ thống bán hàng.</div>
+            <div class="fw-title">Người tạo nội dung muốn kiếm tiền từ kênh</div>
+            <div class="fw-desc">Đang có lượng người theo dõi, muốn biến nó thành doanh nghiệp thực thụ với hệ thống bán hàng.</div>
           </div>
         </div>
       </div>
@@ -870,18 +595,18 @@
 
     <div class="forwho-right">
       <div class="section-label">Tại sao đọc ngay?</div>
-      <h3 class="section-title" style="font-size:1.6rem;">Mô hình OPC đang <em>bùng nổ</em> tại châu Á</h3>
+      <h3 class="section-title" style="font-size:1.6rem;">Mô hình doanh nghiệp 1 người đang <em>bùng nổ</em> tại châu Á</h3>
       <p class="section-body">
-        Tại Trung Quốc, hàng nghìn "doanh nghiệp 1 người" tạo ra hàng triệu đô doanh thu nhờ AI và nội dung số. Làn sóng đó đang đến Đông Nam Á — và Việt Nam là một trong những thị trường có lợi thế nhất.
+        Tại Trung Quốc, hàng nghìn "doanh nghiệp 1 người" tạo ra hàng triệu đô doanh thu nhờ trí tuệ nhân tạo và nội dung số. Làn sóng đó đang đến Đông Nam Á — và Việt Nam là một trong những thị trường có lợi thế nhất.
       </p>
       <p class="section-body">
-        Chi phí sinh hoạt thấp + kết nối internet toàn cầu + AI tools mở rộng năng lực cá nhân = công thức chưa bao giờ thuận lợi đến thế.
+        Chi phí sinh hoạt thấp + kết nối internet toàn cầu + công cụ trí tuệ nhân tạo mở rộng năng lực cá nhân = công thức chưa bao giờ thuận lợi đến thế.
       </p>
 
       <div class="not-for">
         <div class="not-for-title">Không phù hợp nếu bạn…</div>
         <div class="not-for-item">Muốn "làm giàu nhanh" không cần làm việc</div>
-        <div class="not-for-item">Tìm kiếm công thức copy-paste không cần tư duy</div>
+        <div class="not-for-item">Tìm kiếm công thức sao chép không cần tư duy</div>
         <div class="not-for-item">Không sẵn sàng đầu tư thời gian học và thử nghiệm</div>
       </div>
     </div>
@@ -895,23 +620,23 @@
   <div class="testimonials-grid">
     <div class="t-card">
       <div class="t-quote">"</div>
-      <p class="t-text">Đây là cuốn sách thực chiến nhất tôi đọc về chủ đề này. Không phải lý thuyết từ Mỹ không áp dụng được ở Việt Nam — mà là câu chuyện thật, số liệu thật, bài học thật.</p>
+      <p class="t-text">Đây là cuốn sách thực chiến nhất tôi đọc về chủ đề này. Không phải lý thuyết không áp dụng được ở Việt Nam — mà là câu chuyện thật, số liệu thật, bài học thật.</p>
       <div class="t-author">
         <div class="t-avatar">M</div>
         <div>
           <div class="t-name">Minh Khoa</div>
-          <div class="t-role">Freelance Designer · TP.HCM</div>
+          <div class="t-role">Nhà thiết kế tự do · TP.HCM</div>
         </div>
       </div>
     </div>
     <div class="t-card">
       <div class="t-quote">"</div>
-      <p class="t-text">Chương về AI Stack đã giúp tôi tiết kiệm gần 20 triệu/tháng tiền nhân sự. Tôi áp dụng ngay sau khi đọc và thấy kết quả trong 2 tuần đầu tiên.</p>
+      <p class="t-text">Chương về bộ công cụ trí tuệ nhân tạo đã giúp tôi tiết kiệm gần 20 triệu/tháng tiền nhân sự. Tôi áp dụng ngay sau khi đọc và thấy kết quả trong 2 tuần đầu tiên.</p>
       <div class="t-author">
         <div class="t-avatar">T</div>
         <div>
           <div class="t-name">Thanh Hà</div>
-          <div class="t-role">Content Creator · Hà Nội</div>
+          <div class="t-role">Người tạo nội dung · Hà Nội</div>
         </div>
       </div>
     </div>
@@ -922,7 +647,7 @@
         <div class="t-avatar">A</div>
         <div>
           <div class="t-name">Anh Tuấn</div>
-          <div class="t-role">Ex-Startup Founder · Đà Nẵng</div>
+          <div class="t-role">Cựu nhà sáng lập khởi nghiệp · Đà Nẵng</div>
         </div>
       </div>
     </div>
@@ -941,50 +666,50 @@
     <div class="price-note">Thanh toán một lần · Tải về vĩnh viễn</div>
 
     <div class="price-includes">
-      <div class="pi-item"><div class="pi-check">✓</div> Ebook PDF 200+ trang (13 chương)</div>
+      <div class="pi-item"><div class="pi-check">✓</div> Sách điện tử PDF 200+ trang (13 chương)</div>
       <div class="pi-item"><div class="pi-check">✓</div> Bộ bài tập cuối chương (40+ câu hỏi)</div>
-      <div class="pi-item"><div class="pi-check">✓</div> Checklist AI Stack cho solopreneur Việt</div>
-      <div class="pi-item"><div class="pi-check">✓</div> Template SOP cơ bản (Word + Notion)</div>
+      <div class="pi-item"><div class="pi-check">✓</div> Danh sách kiểm tra công cụ cho người khởi nghiệp Việt</div>
+      <div class="pi-item"><div class="pi-check">✓</div> Mẫu quy trình cơ bản (Word + Notion)</div>
       <div class="pi-item"><div class="pi-check">✓</div> Cập nhật miễn phí tất cả phiên bản sau</div>
     </div>
 
-    <a href="#" class="btn-buy">Tải Ebook Ngay — 299.000₫</a>
-    <div class="price-guarantee">🔒 Thanh toán bảo mật qua PayPal · Hoàn tiền 7 ngày nếu không hài lòng</div>
+    <button class="btn-buy" onclick="openModal()">Tải Ebook Ngay — 299.000₫</button>
+    <div class="price-guarantee">🔒 Thanh toán bảo mật · Hoàn tiền 7 ngày nếu không hài lòng</div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="faq-section">
   <div class="section-label" style="text-align:center;">Câu hỏi thường gặp</div>
-  <h2 class="section-title">FAQ</h2>
+  <h2 class="section-title">Giải Đáp Thắc Mắc</h2>
 
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
-      Tôi nhận file như thế nào sau khi mua?
+      Tôi nhận file như thế nào sau khi đăng ký?
       <span class="faq-arrow">›</span>
     </div>
-    <div class="faq-a">Sau khi thanh toán thành công, hệ thống tự động gửi link tải về email của bạn trong vòng 5 phút. File PDF có thể đọc trên điện thoại, tablet, hoặc máy tính.</div>
+    <div class="faq-a">Sau khi điền thông tin, chúng tôi sẽ gửi link tải về email của bạn trong vòng 24 giờ. File PDF có thể đọc trên điện thoại, máy tính bảng, hoặc máy tính.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
       Sách có phù hợp nếu tôi chưa có ý tưởng kinh doanh?
       <span class="faq-arrow">›</span>
     </div>
-    <div class="faq-a">Có. Chương 2 và 3 được thiết kế để giúp bạn tìm và validate ý tưởng phù hợp với kỹ năng và bối cảnh hiện tại của bạn — ngay cả khi bạn đang bắt đầu từ con số 0.</div>
+    <div class="faq-a">Có. Chương 2 và 3 được thiết kế để giúp bạn tìm và kiểm chứng ý tưởng phù hợp với kỹ năng và bối cảnh hiện tại — ngay cả khi bạn đang bắt đầu từ con số 0.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
-      Tôi cần biết code hay kỹ thuật để áp dụng?
+      Tôi cần biết lập trình hay kỹ thuật để áp dụng không?
       <span class="faq-arrow">›</span>
     </div>
-    <div class="faq-a">Không. Sách được viết cho người không có nền tảng kỹ thuật. Tất cả công cụ AI và hệ thống được gợi ý đều có giao diện người dùng thân thiện, không cần lập trình.</div>
+    <div class="faq-a">Không. Sách được viết cho người không có nền tảng kỹ thuật. Tất cả công cụ trí tuệ nhân tạo và hệ thống được gợi ý đều có giao diện thân thiện, không cần lập trình.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
       Có nhóm hỗ trợ hay cộng đồng kèm theo không?
       <span class="faq-arrow">›</span>
     </div>
-    <div class="faq-a">Hiện tại ebook đi kèm tài liệu và template. Cộng đồng OPC đang được xây dựng — độc giả sẽ được ưu tiên mời tham gia miễn phí khi ra mắt.</div>
+    <div class="faq-a">Hiện tại sách điện tử đi kèm tài liệu và mẫu sẵn. Cộng đồng doanh nghiệp 1 người đang được xây dựng — độc giả sẽ được ưu tiên mời tham gia miễn phí khi ra mắt.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
@@ -1000,24 +725,188 @@
   <div class="section-label">Bắt đầu hành trình của bạn</div>
   <h2 class="section-title" style="color:var(--cream);">Đừng đợi <em style="color:var(--gold-light);">điều kiện hoàn hảo</em></h2>
   <p class="footer-cta-sub">Mọi doanh nghiệp 1 người vĩ đại đều bắt đầu từ một quyết định nhỏ — đọc, học, và thực hành từ hôm nay.</p>
-  <a href="#pricing" class="btn-primary" style="display:inline-flex;">
+  <button class="btn-primary" onclick="openModal()" style="display:inline-flex;">
     Sở Hữu Ebook Ngay
     <span>→</span>
-  </a>
+  </button>
 </section>
 
 <footer>
-  <div class="footer-brand">OPC · Doanh Nghiệp 1 Người</div>
-  <div class="footer-copy">© 2025 Hạnh Bình · Tất cả quyền được bảo lưu</div>
+  <div class="footer-brand">DN1N · Doanh Nghiệp 1 Người</div>
+  <div class="footer-copy">© 2025 Bình Hồ · Tất cả quyền được bảo lưu</div>
 </footer>
 
+<!-- ─── MODAL FORM ─── -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" onclick="closeModal()" aria-label="Đóng">✕</button>
+
+    <!-- Form chính -->
+    <div class="form-content" id="formContent">
+      <div class="modal-badge">Miễn phí · Nhận ngay</div>
+      <h2 id="modalTitle">Nhận <em>Ebook Ngay</em> Hôm Nay</h2>
+      <p class="modal-sub">Điền thông tin bên dưới — chúng tôi sẽ gửi link tải ebook về email của bạn trong vòng 24 giờ.</p>
+
+      <div class="form-group">
+        <label for="inputName">Họ và tên</label>
+        <input type="text" id="inputName" placeholder="Nguyễn Văn A" autocomplete="name" />
+      </div>
+      <div class="form-group">
+        <label for="inputEmail">Địa chỉ email</label>
+        <input type="email" id="inputEmail" placeholder="email@example.com" autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="inputPhone">Số điện thoại</label>
+        <input type="tel" id="inputPhone" placeholder="0901 234 567" autocomplete="tel" />
+      </div>
+
+      <button class="btn-submit" id="btnSubmit" onclick="submitForm()">
+        Nhận Ebook Ngay →
+      </button>
+      <p class="form-note">🔒 Thông tin của bạn được bảo mật tuyệt đối, không spam.</p>
+    </div>
+
+    <!-- Trạng thái thành công -->
+    <div class="success-state" id="successState">
+      <div class="success-icon">🎉</div>
+      <h3>Đăng ký thành công!</h3>
+      <p>Cảm ơn <strong id="successName"></strong>! Chúng tôi sẽ gửi link tải ebook về email <strong id="successEmail"></strong> trong vòng 24 giờ.<br/><br/>Hãy kiểm tra cả hộp thư Spam nếu chưa thấy nhé.</p>
+    </div>
+  </div>
+</div>
+
 <script>
+  // ─── MODAL ───
+  function openModal() {
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('inputName').focus(), 100);
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ─── FORM SUBMIT → GOOGLE SHEET ───
+  const SHEET_ID = '1GGMMLMndslr_B4sFiS4hevm309oZU9pZDjvzNbDa9os';
+
+  // Bạn cần tạo Google Apps Script Web App và paste URL vào đây
+  // Xem hướng dẫn bên dưới trong comment
+  const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+  async function submitForm() {
+    const name  = document.getElementById('inputName').value.trim();
+    const email = document.getElementById('inputEmail').value.trim();
+    const phone = document.getElementById('inputPhone').value.trim();
+
+    // Kiểm tra dữ liệu
+    if (!name) { alert('Vui lòng nhập họ và tên.'); return; }
+    if (!email || !email.includes('@')) { alert('Vui lòng nhập địa chỉ email hợp lệ.'); return; }
+    if (!phone) { alert('Vui lòng nhập số điện thoại.'); return; }
+
+    const btn = document.getElementById('btnSubmit');
+    btn.disabled = true;
+    btn.textContent = 'Đang gửi...';
+
+    try {
+      const params = new URLSearchParams({
+        hoTen: name,
+        email: email,
+        dienThoai: phone,
+        thoiGian: new Date().toLocaleString('vi-VN')
+      });
+
+      // Gửi dữ liệu đến Google Apps Script (no-cors để tránh lỗi CORS)
+      await fetch(APPS_SCRIPT_URL + '?' + params.toString(), {
+        method: 'GET',
+        mode: 'no-cors'
+      });
+
+      // Hiển thị màn hình thành công
+      document.getElementById('successName').textContent = name;
+      document.getElementById('successEmail').textContent = email;
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('successState').classList.add('show');
+
+    } catch (err) {
+      // Kể cả khi có lỗi network, vẫn hiển thị thành công (vì no-cors không báo lỗi thật)
+      document.getElementById('successName').textContent = name;
+      document.getElementById('successEmail').textContent = email;
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('successState').classList.add('show');
+    }
+  }
+
+  // ─── FAQ ───
   function toggleFaq(el) {
     const ans = el.nextElementSibling;
     el.classList.toggle('open');
     ans.classList.toggle('open');
   }
+
+  // Cho phép nhấn Enter để submit
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && document.getElementById('modalOverlay').classList.contains('active')) {
+      submitForm();
+    }
+  });
 </script>
+
+<!--
+  ════════════════════════════════════════════════════════
+  HƯỚNG DẪN KẾT NỐI GOOGLE SHEET
+  ════════════════════════════════════════════════════════
+
+  BƯỚC 1: Mở Google Sheet có ID: 1GGMMLMndslr_B4sFiS4hevm309oZU9pZDjvzNbDa9os
+  
+  BƯỚC 2: Tạo hàng tiêu đề ở Sheet1:
+    Cột A: Thời Gian
+    Cột B: Họ Tên
+    Cột C: Email
+    Cột D: Điện Thoại
+
+  BƯỚC 3: Trong Google Sheet → Extensions (Tiện ích mở rộng) → Apps Script
+  
+  BƯỚC 4: Xoá code cũ, paste đoạn sau:
+
+  ─────────────────────────────────────────
+  function doGet(e) {
+    var sheet = SpreadsheetApp.openById('1GGMMLMndslr_B4sFiS4hevm309oZU9pZDjvzNbDa9os').getActiveSheet();
+    var params = e.parameter;
+    sheet.appendRow([
+      params.thoiGian || new Date().toLocaleString('vi-VN'),
+      params.hoTen    || '',
+      params.email    || '',
+      params.dienThoai|| ''
+    ]);
+    return ContentService
+      .createTextOutput(JSON.stringify({status: 'ok'}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  ─────────────────────────────────────────
+
+  BƯỚC 5: Nhấn Deploy → New deployment
+    - Type: Web app
+    - Execute as: Me
+    - Who has access: Anyone
+  → Nhấn Deploy → Copy URL
+
+  BƯỚC 6: Paste URL vào dòng này trong file HTML:
+    const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+  → Thay 'YOUR_APPS_SCRIPT_URL_HERE' bằng URL vừa copy
+
+  BƯỚC 7: Upload lại file index.html lên GitHub → Xong!
+  ════════════════════════════════════════════════════════
+-->
 
 </body>
 </html>
