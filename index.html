@@ -132,12 +132,18 @@
       animation: fadeUp 0.9s 0.2s ease both;
     }
     .book-3d {
-      position: relative; width: 260px; height: 340px;
-      transform: perspective(1000px) rotateY(-15deg) rotateX(3deg);
-      transition: transform 0.4s ease;
-      filter: drop-shadow(40px 40px 60px rgba(26,18,8,0.3));
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 3/4;
+      transform: none;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: drop-shadow(0 20px 48px rgba(26,18,8,0.22));
     }
-    .book-3d:hover { transform: perspective(1000px) rotateY(-5deg) rotateX(1deg); }
+    .book-3d:hover {
+      transform: translateY(-8px);
+      filter: drop-shadow(0 32px 56px rgba(26,18,8,0.3));
+    }
     .book-cover {
       width: 100%; height: 100%;
       background: linear-gradient(145deg, #1a1208 0%, #2d2010 60%, #1a1208 100%);
@@ -309,7 +315,7 @@
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 100px; padding-bottom: 4rem; }
       .hero-right { order: -1; }
-      .book-3d { width: 200px; height: 260px; }
+      .book-3d { max-width: 280px; }
       .hero-bg-text { display: none; }
       .author-section, .forwho-inner, .chapters-header { grid-template-columns: 1fr; gap: 2.5rem; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -446,7 +452,7 @@
       <img
         src="https://raw.githubusercontent.com/ceragemnhatrang/doanhnghiep1nguoi/main/bia-sach.jpg"
         alt="Bìa sách Cẩm Nang Xây Dựng Doanh Nghiệp 1 Người"
-        style="width:100%;height:100%;object-fit:cover;border-radius:2px 6px 6px 2px;display:block;"
+        style="width:100%;height:100%;object-fit:contain;display:block;"
       />
     </div>
   </div>
