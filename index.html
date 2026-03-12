@@ -784,6 +784,16 @@
 <script>
   // ─── MODAL ───
   function openModal() {
+    // Reset về trạng thái form ban đầu mỗi lần mở
+    document.getElementById('formContent').style.display = '';
+    document.getElementById('successState').classList.remove('show');
+    document.getElementById('inputName').value = '';
+    document.getElementById('inputEmail').value = '';
+    document.getElementById('inputPhone').value = '';
+    const btn = document.getElementById('btnSubmit');
+    btn.disabled = false;
+    btn.textContent = 'Nhận Ebook Ngay →';
+
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
     setTimeout(() => document.getElementById('inputName').focus(), 100);
@@ -805,9 +815,7 @@
   // ─── FORM SUBMIT → GOOGLE SHEET ───
   const SHEET_ID = '1GGMMLMndslr_B4sFiS4hevm309oZU9pZDjvzNbDa9os';
 
-  // Bạn cần tạo Google Apps Script Web App và paste URL vào đây
-  // Xem hướng dẫn bên dưới trong comment
-  const APPS_SCRIPT_URL = https://script.google.com/macros/s/AKfycbwUADHABWuJNq2qWDDTxkH-maHgamR8NTWTHgP2H1LiK1xyrW8u1QDAgH9FcL6ofXRg/exec;
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwUADHABWuJNq2qWDDTxkH-maHgamR8NTWTHgP2H1LiK1xyrW8u1QDAgH9FcL6ofXRg/exec';
 
   async function submitForm() {
     const name  = document.getElementById('inputName').value.trim();
@@ -906,9 +914,8 @@
     - Who has access: Anyone
   → Nhấn Deploy → Copy URL
 
-  BƯỚC 6: Paste URL vào dòng này trong file HTML:
-    const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
-  → Thay 'YOUR_APPS_SCRIPT_URL_HERE' bằng URL vừa copy
+  BƯỚC 6: URL đã được chèn sẵn vào file này ✅
+  → https://script.google.com/macros/s/AKfycbwUADHABWuJNq2qWDDTxkH-maHgamR8NTWTHgP2H1LiK1xyrW8u1QDAgH9FcL6ofXRg/exec
 
   BƯỚC 7: Upload lại file index.html lên GitHub → Xong!
   ════════════════════════════════════════════════════════
