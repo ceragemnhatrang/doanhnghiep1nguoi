@@ -198,7 +198,8 @@
   }
 
   input[type="text"],
-  input[type="email"] {
+  input[type="email"],
+  input[type="tel"] {
     width: 100%;
     padding: 14px 16px;
     border: 1.5px solid var(--border);
@@ -631,6 +632,11 @@
         <label for="phone">Số điện thoại (tuỳ chọn)</label>
         <input type="tel" id="phone" name="phone" placeholder="0901 234 567" autocomplete="tel">
       </div>
+      <div class="form-group">
+        <label for="pageTitle">Tên Fanpage của bạn</label>
+        <input type="text" id="pageTitle" name="pageTitle" placeholder="VD: Doanh Nghiệp 1 Người" autocomplete="off">
+        <div class="field-error" id="pageTitleError">Vui lòng nhập tên Fanpage</div>
+      </div>
       <button type="submit" class="btn-submit" id="submitBtn">
         Gửi cho tôi tài liệu →
       </button>
@@ -753,6 +759,7 @@
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
   const phoneInput = document.getElementById('phone');
+  const pageTitleInput = document.getElementById('pageTitle');
   const nameError = document.getElementById('nameError');
   const emailError = document.getElementById('emailError');
 
@@ -797,6 +804,7 @@
         hoTen: hoTen,
         email: email,
         dienThoai: phoneInput.value.trim(),
+        tenFanpage: pageTitleInput.value.trim(),
         thoiGian: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
       });
 
