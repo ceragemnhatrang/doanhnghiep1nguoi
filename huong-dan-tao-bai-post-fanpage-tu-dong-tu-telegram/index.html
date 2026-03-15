@@ -1,1 +1,842 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tự Động Đăng Bài Fanpage Bằng AI — Hướng Dẫn Make</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f0ede8;
+    --paper: #0d0f14;
+    --accent: #f97316;
+    --accent2: #60a5fa;
+    --muted: #8892a4;
+    --border: #1e2433;
+    --card: #131720;
+    --card2: #161c28;
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(13,15,20,0.92);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+  }
+
+  .logo span { color: var(--accent); }
+
+  nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 32px;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .hero-left {
+    padding: 80px 64px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+
+  .tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 48px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-num {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* HERO RIGHT — FORM */
+  .hero-right {
+    padding: 80px 80px 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--card);
+  }
+
+  .form-header {
+    margin-bottom: 40px;
+  }
+
+  .form-header h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .form-header p {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--paper);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  input:focus {
+    border-color: var(--accent);
+    background: #0f1219;
+  }
+
+  input::placeholder { color: #3a4255; }
+
+  .btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-submit:hover { background: #ea7c34; }
+  .btn-submit:active { transform: scale(0.99); }
+
+  .btn-submit.loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .privacy {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  /* SUCCESS STATE */
+  .success-box {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: #0d1f14;
+    border: 1.5px solid #166534;
+    border-radius: 8px;
+  }
+
+  .success-box.show { display: block; }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    background: #22c55e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .success-icon svg { width: 28px; height: 28px; }
+
+  .success-box h3 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #4ade80;
+  }
+
+  .success-box p {
+    font-size: 14px;
+    color: #86efac;
+  }
+
+  /* STEPS SECTION */
+  .section {
+    padding: 100px 80px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 46px);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 64px;
+    max-width: 600px;
+    color: var(--ink);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .step-card {
+    background: var(--card);
+    padding: 40px 32px;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .step-card:hover { background: var(--card2); }
+
+  .step-num {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 300;
+    font-size: 52px;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 24px;
+    transition: color 0.2s;
+  }
+
+  .step-card:hover .step-num { color: var(--accent); }
+
+  .step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .step-card h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .step-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* WHAT YOU GET */
+  .benefits {
+    padding: 100px 80px;
+    background: #080a0f;
+    color: white;
+    border-top: 1px solid var(--border);
+  }
+
+  .benefits .section-label { color: var(--accent); }
+
+  .benefits h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 46px);
+    letter-spacing: -0.5px;
+    margin-bottom: 64px;
+    max-width: 520px;
+    line-height: 1.2;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .benefit-item {
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .benefit-item:hover {
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .benefit-emoji { font-size: 28px; margin-bottom: 20px; display: block; }
+
+  .benefit-item h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .benefit-item p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+  }
+
+  /* TOOLS */
+  .tools {
+    padding: 80px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .tools-label {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .tools-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .tools-list {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .tool-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--card);
+  }
+
+  .tool-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* CTA BOTTOM */
+  .cta-bottom {
+    padding: 120px 80px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: var(--card);
+  }
+
+  .cta-bottom h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: clamp(32px, 5vw, 56px);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--ink);
+  }
+
+  .cta-bottom h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .cta-bottom p {
+    font-size: 17px;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn-cta:hover { background: #ea7c34; transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    padding: 32px 80px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+
+  .hero-right {
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  /* ERROR */
+  .field-error {
+    font-size: 12px;
+    color: #dc2626;
+    margin-top: 6px;
+    display: none;
+  }
+
+  .field-error.show { display: block; }
+
+  input.error { border-color: #dc2626; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 40px; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { padding: 60px 40px; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .section, .benefits { padding: 80px 40px; }
+    .tools { padding: 60px 40px; flex-wrap: wrap; }
+    .cta-bottom { padding: 80px 40px; }
+    footer { padding: 32px 40px; flex-direction: column; gap: 12px; text-align: center; }
+    header { padding: 16px 24px; }
+    nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Make<span>AI</span> Guide</div>
+  <nav>
+    <a href="#steps">Quy trình</a>
+    <a href="#benefits">Lợi ích</a>
+    <a href="#form">Nhận tài liệu</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="form">
+  <div class="hero-left">
+    <div class="tag">Hướng dẫn thực chiến</div>
+    <h1>Tự động đăng bài<br>Fanpage bằng <em>AI</em><br>trên Make</h1>
+    <p class="hero-desc">Quy trình hoàn chỉnh từ Telegram → Claude AI → Facebook Fanpage. Gửi link, AI tự viết bài và đăng lên — không cần code, không cần kỹ thuật.</p>
+    <div class="stats">
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">module duy nhất</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">operations / bài</div>
+      </div>
+      <div>
+        <div class="stat-num">330+</div>
+        <div class="stat-label">bài / tháng (free)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="form-header">
+      <h2>Nhận hướng dẫn miễn phí</h2>
+      <p>Điền thông tin bên dưới — tài liệu sẽ gửi về email của bạn ngay.</p>
+    </div>
+
+    <form id="leadForm" novalidate>
+      <div class="form-group">
+        <label for="name">Họ và tên</label>
+        <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" autocomplete="name">
+        <div class="field-error" id="nameError">Vui lòng nhập họ tên của bạn</div>
+      </div>
+      <div class="form-group">
+        <label for="email">Địa chỉ email</label>
+        <input type="email" id="email" name="email" placeholder="email@cua-ban.com" autocomplete="email">
+        <div class="field-error" id="emailError">Vui lòng nhập email hợp lệ</div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Số điện thoại (tuỳ chọn)</label>
+        <input type="tel" id="phone" name="phone" placeholder="0901 234 567" autocomplete="tel">
+      </div>
+      <button type="submit" class="btn-submit" id="submitBtn">
+        Gửi cho tôi tài liệu →
+      </button>
+      <p class="privacy">🔒 Thông tin của bạn được bảo mật tuyệt đối. Không spam.</p>
+    </form>
+
+    <div class="success-box" id="successBox">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <h3>Đăng ký thành công!</h3>
+      <p>Cảm ơn bạn đã đăng ký. Tài liệu hướng dẫn sẽ được gửi về email của bạn trong vài phút.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section" id="steps">
+  <div class="section-label">Quy trình</div>
+  <h2>4 bước tự động hoá hoàn toàn</h2>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon" style="background:#1a2535">📱</div>
+      <h3>Telegram Bot</h3>
+      <p>Gửi link bài viết lên bot Telegram. Webhook nhận tín hiệu tức thì, không cần polling.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon" style="background:#1f1a10">🤖</div>
+      <h3>Claude AI viết bài</h3>
+      <p>Anthropic Claude đọc nội dung, tóm tắt 300 chữ theo phong cách phù hợp Fanpage với emoji và hashtag.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon" style="background:#101828">📘</div>
+      <h3>Đăng lên Facebook</h3>
+      <p>Module Facebook Pages tự động đăng bài lên Fanpage của bạn ngay lập tức sau khi AI tạo xong.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <div class="step-icon" style="background:#0d1f14">✅</div>
+      <h3>Nhận thông báo</h3>
+      <p>Bot Telegram gửi xác nhận về điện thoại bạn. Toàn bộ quy trình chỉ mất 10–15 giây.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="section-label">Lợi ích</div>
+  <h2>Tiết kiệm thời gian,<br>tăng tần suất đăng bài</h2>
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <span class="benefit-emoji">⚡</span>
+      <h4>Đăng bài trong 15 giây</h4>
+      <p>Từ lúc gửi link đến khi bài lên Fanpage chỉ mất 10–15 giây. Không cần mở trình duyệt, không cần copy-paste.</p>
+    </div>
+    <div class="benefit-item">
+      <span class="benefit-emoji">🆓</span>
+      <h4>Hoàn toàn miễn phí để bắt đầu</h4>
+      <p>Make Free Plan cho 1.000 operations/tháng, đủ để đăng 330+ bài. Chỉ tốn chi phí API Claude rất nhỏ.</p>
+    </div>
+    <div class="benefit-item">
+      <span class="benefit-emoji">📱</span>
+      <h4>Làm từ điện thoại</h4>
+      <p>Mọi thứ thực hiện qua Telegram. Đang trên đường, thấy bài hay — gửi link là xong, không cần ngồi máy tính.</p>
+    </div>
+    <div class="benefit-item">
+      <span class="benefit-emoji">✍️</span>
+      <h4>Nội dung tự nhiên, không cứng nhắc</h4>
+      <p>Claude viết bài theo phong cách bạn yêu cầu — thân thiện, chuyên nghiệp, hay hài hước tuỳ chủ đề.</p>
+    </div>
+    <div class="benefit-item">
+      <span class="benefit-emoji">🔧</span>
+      <h4>Không cần biết code</h4>
+      <p>Toàn bộ setup thực hiện trên giao diện kéo-thả của Make. Làm theo hướng dẫn từng bước là xong.</p>
+    </div>
+    <div class="benefit-item">
+      <span class="benefit-emoji">🔄</span>
+      <h4>Chạy tự động 24/7</h4>
+      <p>Một lần setup, dùng mãi mãi. Scenario chạy nền, bạn gửi link lúc nào cũng được kể cả 3 giờ sáng.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<div class="tools">
+  <span class="tools-label">Công cụ sử dụng</span>
+  <div class="tools-line"></div>
+  <div class="tools-list">
+    <div class="tool-pill"><div class="tool-dot" style="background:#7c3aed"></div>Make.com</div>
+    <div class="tool-pill"><div class="tool-dot" style="background:#d97706"></div>Anthropic Claude</div>
+    <div class="tool-pill"><div class="tool-dot" style="background:#0088cc"></div>Telegram Bot</div>
+    <div class="tool-pill"><div class="tool-dot" style="background:#1877f2"></div>Facebook Pages API</div>
+    <div class="tool-pill"><div class="tool-dot" style="background:#34a853"></div>Google Sheets</div>
+  </div>
+</div>
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom">
+  <h2>Bắt đầu tự động hoá<br><em>ngay hôm nay</em></h2>
+  <p>Hướng dẫn từng bước chi tiết, có ảnh minh hoạ và video demo.</p>
+  <a href="#form" class="btn-cta">Nhận tài liệu miễn phí →</a>
+</section>
+
+<footer>
+  <p>© 2026 MakeAI Guide — Hướng dẫn tự động hoá cho người Việt</p>
+  <p style="font-size:13px;color:var(--muted)">Không spam · Bảo mật thông tin · Miễn phí 100%</p>
+</footer>
+
+<script>
+  const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwUADHABWuJNq2qWDDTxkH-maHgamR8NTWTHgP2H1LiK1xyrW8u1QDAgH9FcL6ofXRg/exec';
+
+  const form = document.getElementById('leadForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successBox = document.getElementById('successBox');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const phoneInput = document.getElementById('phone');
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function clearErrors() {
+    nameInput.classList.remove('error');
+    emailInput.classList.remove('error');
+    nameError.classList.remove('show');
+    emailError.classList.remove('show');
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    clearErrors();
+
+    const hoTen = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    let valid = true;
+
+    if (!hoTen) {
+      nameInput.classList.add('error');
+      nameError.classList.add('show');
+      valid = false;
+    }
+
+    if (!email || !validateEmail(email)) {
+      emailInput.classList.add('error');
+      emailError.classList.add('show');
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    submitBtn.classList.add('loading');
+    submitBtn.textContent = 'Đang gửi...';
+
+    try {
+      const params = new URLSearchParams({
+        hoTen: hoTen,
+        email: email,
+        dienThoai: phoneInput.value.trim(),
+        thoiGian: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
+      });
+
+      await fetch(GOOGLE_SHEET_URL + '?' + params.toString(), {
+        method: 'GET',
+        mode: 'no-cors'
+      });
+    } catch (err) {
+      console.log('Submit attempted');
+    }
+
+    form.style.display = 'none';
+    successBox.classList.add('show');
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.style.opacity = '1';
+        el.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.step-card, .benefit-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
