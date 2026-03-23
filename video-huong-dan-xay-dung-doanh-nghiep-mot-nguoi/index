@@ -1,1 +1,689 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiến Thức Sản Phẩm | MiraeWarm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a96e;
+      --gold-light: #e8d5a8;
+      --gold-dark: #8b6914;
+      --obsidian: #0a0a0a;
+      --deep: #111118;
+      --card-bg: #13131c;
+      --border: rgba(201,169,110,0.18);
+      --text: #e8e0d0;
+      --muted: #8a8070;
+    }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--obsidian);
+      color: var(--text);
+      font-family: 'Be Vietnam Pro', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background atmosphere */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% -10%, rgba(201,169,110,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(138,105,28,0.05) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Subtle grid texture */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,169,110,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,169,110,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: relative;
+      z-index: 10;
+      padding: 28px 48px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .logo span {
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+
+    .breadcrumb {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb .sep { margin: 0 8px; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 72px 48px 56px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .hero-eyebrow::after {
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 0 48px;
+      margin-bottom: 56px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: 200px;
+    }
+
+    .divider-gem {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      box-shadow: 0 0 12px rgba(201,169,110,0.5);
+    }
+
+    /* ─── GRID ─── */
+    .grid-section {
+      position: relative;
+      z-index: 5;
+      padding: 0 48px 80px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    /* ─── CARD ─── */
+    .video-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+      animation: cardIn 0.6s ease both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .video-card:nth-child(1) { animation-delay: 0.05s; }
+    .video-card:nth-child(2) { animation-delay: 0.10s; }
+    .video-card:nth-child(3) { animation-delay: 0.15s; }
+    .video-card:nth-child(4) { animation-delay: 0.20s; }
+    .video-card:nth-child(5) { animation-delay: 0.25s; }
+    .video-card:nth-child(6) { animation-delay: 0.30s; }
+    .video-card:nth-child(7) { animation-delay: 0.35s; }
+    .video-card:nth-child(8) { animation-delay: 0.40s; }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,169,110,0.45);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,169,110,0.12);
+    }
+
+    /* Gold accent top bar */
+    .video-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+    .video-card:hover::before { opacity: 1; }
+
+    /* ─── THUMBNAIL ─── */
+    .thumb-wrap {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: #0c0c14;
+      overflow: hidden;
+    }
+
+    .thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.3s;
+      filter: brightness(0.85);
+    }
+
+    .video-card:hover .thumb-wrap img {
+      transform: scale(1.04);
+      filter: brightness(0.95);
+    }
+
+    /* Play button */
+    .play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    .video-card:hover .play-btn { background: rgba(0,0,0,0.1); }
+
+    .play-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(201,169,110,0.15);
+      border: 1.5px solid rgba(201,169,110,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      transition: background 0.3s, transform 0.3s, border-color 0.3s;
+    }
+
+    .video-card:hover .play-icon {
+      background: rgba(201,169,110,0.25);
+      border-color: var(--gold);
+      transform: scale(1.08);
+    }
+
+    .play-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--gold-light);
+      margin-left: 3px;
+    }
+
+    /* Badge for Shorts */
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: rgba(201,169,110,0.15);
+      border: 1px solid rgba(201,169,110,0.4);
+      color: var(--gold);
+      border-radius: 2px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ─── CARD BODY ─── */
+    .card-body {
+      padding: 20px 22px 22px;
+    }
+
+    .lesson-num {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .video-card:hover .card-title { color: var(--gold-light); }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .watch-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .video-card:hover .watch-label { color: var(--gold); }
+
+    .watch-label svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+
+    .arrow-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      transition: transform 0.25s, color 0.25s;
+    }
+
+    .video-card:hover .arrow-icon {
+      transform: translateX(4px);
+      color: var(--gold);
+    }
+
+    .arrow-icon svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+    }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5,5,8,0.92);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-box {
+      position: relative;
+      width: 90vw;
+      max-width: 860px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      transform: scale(0.95) translateY(20px);
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,169,110,0.1);
+    }
+
+    .modal-overlay.open .modal-box {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .modal-lesson-num {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--gold-light);
+      line-height: 1.4;
+    }
+
+    .modal-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .modal-close:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,169,110,0.08);
+    }
+
+    .modal-close svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+    }
+
+    .video-container {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 40px 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+    }
+
+    .footer-text {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-text a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      header { padding: 20px 24px; }
+      .hero { padding: 48px 24px 40px; }
+      .divider { padding: 0 24px; }
+      .grid-section { padding: 0 20px 60px; }
+      .video-grid { grid-template-columns: 1fr; gap: 20px; }
+      footer { padding: 32px 24px; }
+      .modal-box { width: 95vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="https://miraewarm.com" class="logo">Mirae<span>Warm</span></a>
+    <div class="breadcrumb">
+      <a href="https://miraewarm.com">Trang chủ</a>
+      <span class="sep">›</span>
+      <span>Kiến Thức Sản Phẩm</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Thư viện kiến thức</div>
+    <h1>Kiến Thức<br><em>Sản Phẩm</em></h1>
+    <p class="hero-desc">Khám phá loạt bài học chuyên sâu về thảm đá nóng Hàn Quốc — từ cơ chế hoạt động đến lợi ích sức khoẻ và cách sử dụng đúng cách.</p>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-gem"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- VIDEO GRID -->
+  <section class="grid-section">
+    <div class="video-grid" id="videoGrid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">MiraeWarm™</div>
+    <div class="footer-text">
+      © 2025 MiraeWarm — Công nghệ đá nhiệt hồng ngoại Hàn Quốc &nbsp;|&nbsp;
+      <a href="https://miraewarm.com">miraewarm.com</a>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <div class="modal-lesson-num" id="modalLesson"></div>
+          <div class="modal-title" id="modalTitle"></div>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Đóng">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="video-container">
+        <iframe id="modalIframe" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const videos = [
+      { title: "Thảm đá nóng Hàn Quốc là gì?",                              url: "https://www.youtube.com/watch?v=EyYh484R-9U",          shorts: false },
+      { title: "Thảm đá nóng được cấu tạo như thế nào?",                     url: "https://www.youtube.com/shorts/VY5R3bY9WhM",           shorts: true },
+      { title: "Thảm đá nóng sử dụng ra sao và có lợi ích gì?",              url: "https://www.youtube.com/shorts/BlTnZMFsU-4",           shorts: true },
+      { title: "Tại sao người xưa khuyên chườm nóng để ít bệnh tật?",        url: "https://www.youtube.com/watch?v=WaFpVRDw6oI",          shorts: false },
+      { title: "Thảm đá nóng có an toàn không?",                             url: "https://www.youtube.com/watch?v=n79oTR3VibU",          shorts: false },
+      { title: "Thảm đá nóng Hàn Quốc khác thảm ngãi cứu chỗ nào?",        url: "https://www.youtube.com/watch?v=95NS8fRJ8Gk",          shorts: false },
+      { title: "Vì sao nên sử dụng thảm đá nóng Hàn Quốc mỗi ngày?",        url: "https://www.youtube.com/watch?v=StUKEadHyZA",          shorts: false },
+      { title: "So sánh thảm đá nóng Mirae Warm với các sản phẩm khác?",     url: "https://www.youtube.com/watch?v=V61pkFnUUgY",          shorts: false },
+    ];
+
+    function getVideoId(url) {
+      const watchMatch = url.match(/[?&]v=([^&]+)/);
+      if (watchMatch) return { id: watchMatch[1], type: 'watch' };
+      const shortsMatch = url.match(/shorts\/([^?&]+)/);
+      if (shortsMatch) return { id: shortsMatch[1], type: 'shorts' };
+      return null;
+    }
+
+    function getEmbedUrl(url) {
+      const result = getVideoId(url);
+      if (!result) return '';
+      return `https://www.youtube.com/embed/${result.id}?autoplay=1&rel=0`;
+    }
+
+    function getThumbnail(url) {
+      const result = getVideoId(url);
+      if (!result) return '';
+      return `https://i.ytimg.com/vi/${result.id}/hqdefault.jpg`;
+    }
+
+    const grid = document.getElementById('videoGrid');
+
+    videos.forEach((v, i) => {
+      const lessonNum = `Bài ${i + 1}`;
+      const card = document.createElement('div');
+      card.className = 'video-card';
+      card.innerHTML = `
+        <div class="thumb-wrap">
+          <img src="${getThumbnail(v.url)}" alt="${v.title}" loading="lazy" />
+          <div class="play-btn">
+            <div class="play-icon">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+          ${v.shorts ? '<div class="badge">Shorts</div>' : ''}
+        </div>
+        <div class="card-body">
+          <div class="lesson-num">${lessonNum}</div>
+          <div class="card-title">${v.title}</div>
+          <div class="card-footer">
+            <div class="watch-label">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              Xem ngay
+            </div>
+            <div class="arrow-icon">
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+            </div>
+          </div>
+        </div>
+      `;
+      card.addEventListener('click', () => openModal(v, lessonNum));
+      grid.appendChild(card);
+    });
+
+    // Modal logic
+    const overlay = document.getElementById('modalOverlay');
+    const iframe = document.getElementById('modalIframe');
+    const modalClose = document.getElementById('modalClose');
+    const modalLesson = document.getElementById('modalLesson');
+    const modalTitle = document.getElementById('modalTitle');
+
+    function openModal(v, lessonNum) {
+      modalLesson.textContent = lessonNum;
+      modalTitle.textContent = v.title;
+      iframe.src = getEmbedUrl(v.url);
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      iframe.src = '';
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>
